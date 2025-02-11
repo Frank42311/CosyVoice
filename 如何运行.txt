@@ -1,0 +1,10 @@
+克隆仓库
+git clone --recursive https://github.com/FunAudioLLM/CosyVoice.git
+
+构建docker
+docker build -t cosyvoice:v1.0 .
+
+启动服务
+E:\CosyVoice\runtime\python\grpc>
+docker run -d --gpus all -p 50000:50000 cosyvoice:v1.0 /bin/bash -c "cd /workspace/CosyVoice/runtime/python/fastapi && python3 server.py --port 50000 --model_dir iic/CosyVoice-300M && sleep infinity"
+
